@@ -1,0 +1,42 @@
+<!-----Campo para crear un libro---->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<div align="center">
+  <input type="text" [(ngModel)]="nuevo_libro">
+  <button (click)="crearLibro()">Crear</button>
+</div>
+
+
+
+<!-------Itera la variable global 'libros' y cada elemento lo 
+-- almacena en la variable 'objLibro'
+-->
+<br>
+<div>
+  <table class="table">
+    <tr>
+      <thead>
+        <th>Libros</th>
+      </thead>
+    </tr>
+
+    <tbody>
+      <tr *ngFor="let objLibro of libros">
+        <td>
+          {{objLibro.nombre}}
+        </td>
+        <td>
+          <input type="text" [(ngModel)]="actualizar_libro">
+        </td>
+        <td>
+          <button type="button" class="btn btn-primary" (click)="editar(objLibro.id,objLibro)">Editar</button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)="eliminar(objLibro.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+
+
+  </table>
+</div>
